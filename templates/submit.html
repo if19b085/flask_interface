@@ -1,0 +1,34 @@
+{%extends "base.html"%}
+{%block title %}Submit{%endblock%}
+{%block content %}
+<form action="#" method="post">
+<!--Weight-->
+<p>Weight</p>
+<p><input type="text" name="weight"></p>
+<!--Receipient-->
+<p>Name</p>
+<p><input type="text" name="fromName"></p>
+<p>Street</p>
+<p><input type="text" name="fromStreet"></p>
+<p>Postal Code</p>
+<p><input type="text" name="fromCode"></p>
+<p>City</p>
+<p><input type="text" name="fromCity"></p>
+<p>Country</p>
+<p><input type="text" name="fromCountry"></p>
+<!--Sender-->
+<p>Name</p>
+<p><input type="text" name="toName"></p>
+<p>Street</p>
+<p><input type="text" name="toStreet"></p>
+<p>Postal Code</p>
+<p><input type="text" name="toCode"></p>
+<p>City</p>
+<p><input type="text" name="toCity"></p>
+<p>Country</p>
+<p><input type="text" name="toCountry"></p>
+
+<p><input type="submit" value="Send"></p>
+</form>
+{%endblock%}
+

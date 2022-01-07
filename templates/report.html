@@ -1,0 +1,18 @@
+{%extends "base.html"%}
+{%block title %}Report{%endblock%}
+{%block content %}
+<form action="#" method="post">
+<p>Tracking Id</p>
+<p><input type="text" name="trackingID"></p>
+<p>Station Code:</p>
+<p><input type="text" name="station"></p>
+<fieldset>
+    <input type="radio" id="true" name="delivered" value="true">
+    <label for="on"> Has been delivered</label> 
+    <input type="radio" id="false" name="delivered" value="false" checked>
+    <label for="off"> In Delivery</label>
+</fieldset>
+<p><input type="submit" value="Send"></p>
+</form>
+{%endblock%}
+
