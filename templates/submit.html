@@ -1,34 +1,133 @@
 {%extends "base.html"%}
 {%block title %}Submit{%endblock%}
 {%block content %}
-<form action="#" method="post">
-<!--Weight-->
-<p>Weight</p>
-<p><input type="text" name="weight"></p>
-<!--Receipient-->
-<p>Name</p>
-<p><input type="text" name="fromName"></p>
-<p>Street</p>
-<p><input type="text" name="fromStreet"></p>
-<p>Postal Code</p>
-<p><input type="text" name="fromCode"></p>
-<p>City</p>
-<p><input type="text" name="fromCity"></p>
-<p>Country</p>
-<p><input type="text" name="fromCountry"></p>
-<!--Sender-->
-<p>Name</p>
-<p><input type="text" name="toName"></p>
-<p>Street</p>
-<p><input type="text" name="toStreet"></p>
-<p>Postal Code</p>
-<p><input type="text" name="toCode"></p>
-<p>City</p>
-<p><input type="text" name="toCity"></p>
-<p>Country</p>
-<p><input type="text" name="toCountry"></p>
 
-<p><input type="submit" value="Send"></p>
+
+
+<form action="#" method="post">
+
+    
+
+    <div class="px-5 md-8 row">
+        <div class="card">
+            <div class="card-header">
+                <h4>Parcel data</h5>
+            </div>
+            <div>
+                <p>Parcel's weight</p>
+                <div>
+                    <div class="row m-4">
+                        <!--Weight-->
+                        <p><input type="text" name="weight"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            <h5 class="mb-0">Sender</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form7Example1">Name</label>
+                                            <input type="text" id="form7Example1" class="form-control"
+                                                name="fromName" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Text input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form7Example3">Street</label>
+
+                                    <input type="text" id="form7Example3" class="form-control" name="fromStreet" />
+                                </div>
+
+                                <!-- Text input -->
+                                <div class=" form-outline mb-4">
+                                    <label class="form-label" for="form7Example4">Postal Code</label>
+
+                                    <input type="text" id="form7Example4" class="form-control" name="fromCode" />
+                                </div>
+                                <!-- Text input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form7Example3">City</label>
+
+                                    <input type="text" id="form7Example3" class="form-control" name="fromCity" />
+                                </div>
+
+                                <!-- Text input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form7Example4">County</label>
+
+                                    <input type="text" id="form7Example4" class="form-control" name="fromCountry" />
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            <h5 class="mb-0">Receipient</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form7Example1">Name</label>
+                                            <input type="text" id="form7Example1" class="form-control" name="toName" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Text input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form7Example3">Street</label>
+
+                                    <input type="text" id="form7Example3" class="form-control" name="toStreet" />
+                                </div>
+
+                                <!-- Text input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form7Example4">Postal Code</label>
+
+                                    <input type="text" id="form7Example4" class="form-control" name="toCode" />
+                                </div>
+                                <!-- Text input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form7Example3">City</label>
+
+                                    <input type="text" id="form7Example3" class="form-control" name="toCity" />
+                                </div>
+
+                                <!-- Text input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form7Example4">County</label>
+
+                                    <input type="text" id="form7Example4" class="form-control" name="toCountry" />
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="w-25 mx-auto row">
+                    <input type="submit" value="Send">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </form>
 {%endblock%}
-
