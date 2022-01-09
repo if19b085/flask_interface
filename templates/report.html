@@ -2,17 +2,30 @@
 {%block title %}Report{%endblock%}
 {%block content %}
 <form action="#" method="post">
-<p>Tracking Id</p>
-<p><input type="text" name="trackingID"></p>
-<p>Station Code:</p>
-<p><input type="text" name="station"></p>
-<fieldset>
-    <input type="radio" id="true" name="delivered" value="true">
-    <label for="on"> Has been delivered</label> 
-    <input type="radio" id="false" name="delivered" value="false" checked>
-    <label for="off"> In Delivery</label>
-</fieldset>
-<p><input type="submit" value="Send"></p>
+    <div class="card">
+        <div class="card card-header" style="background-color: #e8f1f8;">
+            <h4>Report Parcel</h5>
+        </div>
+        <div class="mx-auto card-body">
+            <p>Tracking ID</p>
+            <p><input class="form-control" type="text" name="trackingID" placeholder="e.g. ABCD0123" required></p>
+            
+            <p>Station Code:</p>
+            <p><input class="form-control" type="text" name="station" placeholder="e.g. WABC123" required></p>
+            
+            <fieldset>
+                <div class="">
+                    <input type="radio" id="true" name="delivered" value="true">
+                    <label for="on"> Delivered</label>
+                </div>
+                <div class="">
+                    <input type="radio" id="false" name="delivered" value="false" checked>
+                    <label for="off"> In Delivery</label>
+                </div>
+            </fieldset>
+            <p><input class="mt-2 btn btn-primary" type="submit" value="Report"></p>
+
+        </div>
+    </div>
 </form>
 {%endblock%}
-
