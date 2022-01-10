@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request
 import requests
+import json
 
 
  #location of api
@@ -51,7 +52,11 @@ def submit():
         """Makes POST Request with application/json Media-Type"""
         r = requests.post(url = BASE + f"/parcel", json = data)
         
-        return r.text        
+        if(r.status_code == 201):
+            jsonData = json.loads(r.json)
+            return render_template('submitanswer.html', trackingId = jsonData['trackingId'])   
+        else:
+            return render_template('error400.html')   
     else:
         return render_template("submit.html")
 
@@ -61,9 +66,16 @@ def track():
     if request.method == "POST":
         trackingId = request.form["trackingID"]
         r = requests.get(url = BASE + f"/parcel/{trackingId}")
-        return r.text    
+        jsonData = json.loads(r.json)
+        if(r.status_code == 200):
+             #TODO: Parse stations out of r.text and give the parameters to page
+            return render_template('trackanswer.html', messageData = jsonData)   
+        elif(r.status_code == 400):
+            return render_template('error400.html')
+        elif(r.status_code == 404):
+            return render_template('error404.html')   
     else:
-        return render_template("track.html")#
+        return render_template("track.html")
 
 @app.route("/report", methods=["POST", "GET"])
 
@@ -75,12 +87,25 @@ def report():
         
         if checkbox == "true":
             r = requests.post(url = BASE + f"/parcel/{trackingId}/reportDelivery")
-            return r.text 
+
+            if(r.status_code == 200):
+                return render_template('reportanswer.html', trackingId = trackingId)   
+            elif(r.status_code == 400):
+                 return render_template('error400.html')
+            elif(r.status_code == 404):
+                return render_template('error404.html') 
         else:
             r = requests.post(url = BASE + f"/parcel/{trackingId}/reportHop/{code}")
-            return r.text             
+
+            if(r.status_code == 200):
+                return render_template('reportanswer.html', trackingId = trackingId)   
+            elif(r.status_code == 400):
+                 return render_template('error400.html')
+            elif(r.status_code == 404):
+                return render_template('error404.html')             
     else:
         return render_template("report.html")
+    
 
 if __name__ == "__main__":
     app.run()
