@@ -23,7 +23,7 @@ def submit():
         fromCode = request.form["fromCode"]
         fromCity = request.form["fromCity"]
         fromCountry = request.form["fromCountry"]
-        """Receipient"""
+        """Recipient"""
         toName = request.form["toName"]
         toStreet = request.form["toStreet"]
         toCode = request.form["toCode"]

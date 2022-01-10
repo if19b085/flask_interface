@@ -1,5 +1,12 @@
 {%extends "base.html"%}
 {%block title %}Answer{%endblock%}
 {%block content %}
-Your parcel with the TrackingId {{trackingId}} has been successfully registered to the new location.
+<div class="card">
+    <div class="card-header" style="background-color: #e8f1f8;">
+        <h4>Parcel Reporting</h5>
+    </div>
+    <div class="mx-5 my-3 col-md-12 card-body">
+        <p>Your parcel with the TrackingId <b>{{trackingId}}</b> has been successfully registered to the new location.</p>
+    </div>
+</div>
 {%endblock%}

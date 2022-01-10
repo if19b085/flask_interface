@@ -1,17 +1,79 @@
 {%extends "base.html"%}
 {%block title %}Answer{%endblock%}
 {%block content %}
-{{messageData["state"]}}
-{%for station in messageData["visitedHops"]%}
-    <p>visited hop: {{station.code}}</p>
-    <p>{{station.description}}</p>
-    <p>{{station.dateTime}}</p>
-{%endfor%}
+<div class="card">
+    <div class="card-header" style="background-color: #e8f1f8;">
+        <h4>Tracking Result</h5>
+    </div>
+    <div class="mx-5 my-3 col-md-12 card-body">
 
-{%for station in messageData["futureHops"]%}
-    <p>future hop : {{station.code}}</p>
-    <p>{{station.description}}</p>
-{%endfor%}
+        <div class="col-md-12 mb-3 row">
+            <p>Parcel's current state: <b>{{messageData["state"]}}</b></p>
+        </div>
+
+        <div class="row">
+            <table class="col-md-9">
+
+                <tr class="mb-1" style="background-color: #e8f1f8;">
+                    <th colspan="3"><i>Visited Stations</i></th>
+                </tr>
+
+                <tr style="background-color: #e8f1f8;">
+                    <th>Station Code</th>
+                    <th>Station Description</th>
+                    <th>Date and time</th>
+                </tr>
+
+                {%if messageData["futureHops"] is not none%}
+                {%for station in messageData["visitedHops"]%}
+                <tr style="background-color: #f2f6fa;">
+                    <td>
+                        <p>{{station.code}}</p>
+                    </td>
+                    <td>
+                        <p>{{station.description}}</p>
+                    </td>
+                    <td>
+                        <p>{{station.dateTime}}</p>
+                    </td>
+                </tr>
+                {%endfor%}
+                {%endif%}
+
+            </table>
+        </div>
+
+        <div class="row mt-3">
+            <table class="col-md-6">
+
+                <tr class="mb-1" style="background-color: #e8f1f8;">
+                    <th colspan="2"><i>Future Stations</i></th>
+                </tr>
+
+                <tr style="background-color: #e8f1f8;">
+                    <th>Station Code</th>
+                    <th>Station Description</th>
+                </tr>
+
+                {%if messageData["futureHops"] is not none%}
+                {%for station in messageData["futureHops"]%}
+                <tr style="background-color: #f2f6fa;">
+                    <td>
+                        <p>{{station.code}}</p>
+                    </td>
+                    <td>
+                        <p>{{station.description}}</p>
+                    </td>
+                </tr>
+                {%endfor%}
+                {%endif%}
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
 
 
 
