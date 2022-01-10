@@ -52,8 +52,8 @@ def submit():
         """Makes POST Request with application/json Media-Type"""
         r = requests.post(url = BASE + f"/parcel", json = data)
         
-        if(r.status_code == 201):
-            jsonData = json.loads(r.json)
+        if(r.status_code == 200):
+            jsonData = json.loads(r.text)
             return render_template('submitanswer.html', trackingId = jsonData['trackingId'])   
         else:
             return render_template('error400.html')   
@@ -66,7 +66,7 @@ def track():
     if request.method == "POST":
         trackingId = request.form["trackingID"]
         r = requests.get(url = BASE + f"/parcel/{trackingId}")
-        jsonData = json.loads(r.json)
+        jsonData = json.loads(r.text)
         if(r.status_code == 200):
              #TODO: Parse stations out of r.text and give the parameters to page
             return render_template('trackanswer.html', messageData = jsonData)   

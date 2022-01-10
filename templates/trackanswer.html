@@ -1,0 +1,18 @@
+{%extends "base.html"%}
+{%block title %}Answer{%endblock%}
+{%block content %}
+{{messageData["state"]}}
+{%for station in messageData["visitedHops"]%}
+    <p>visited hop: {{station.code}}</p>
+    <p>{{station.description}}</p>
+    <p>{{station.dateTime}}</p>
+{%endfor%}
+
+{%for station in messageData["futureHops"]%}
+    <p>future hop : {{station.code}}</p>
+    <p>{{station.description}}</p>
+{%endfor%}
+
+
+
+{%endblock%}
